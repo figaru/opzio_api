@@ -1,0 +1,185 @@
+//@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,600);
+
+/* Color codes */
+
+$amber-200: #FFD740 !default;
+$amber-400: #FFC400 !default;
+$amber-600: #FFB300 !default;
+$amber-800: #FF8F00 !default;
+
+$blue-200: #40C4FF !default;
+$blue-400: #00B0FF !default;
+$blue-trans: rgba(64,196,255,0.2) !default;
+
+$red-100: #FFCDD2 !default;
+$red-200: #EF9A9A !default;
+$red-500: #F44336 !default;
+$red-trans: rgba(239,154,154,0.2) !default;
+
+$green: #91DC95 !default; //00BD9D
+$teal-400: #1DE9B6 !default;
+$teal-800: #00695C !default;
+$teal-trans: rgba(29,233,182,0.05) !default;
+
+$purple-200: #B39DDB !default;
+$purple-400: #7E57C2 !default;
+//D4A3DE
+
+$bluegrey-50: #ECEFF1 !default;
+$bluegrey-200: #B0BEC5 !default;
+$bluegrey-400: #78909C !default;
+$bluegrey-900: #263238 !default;
+$bluegrey-trans: rgba(176, 190, 197, 0.05) !default;
+$bluegrey-trans-alt: rgba(176, 190, 197, 0.1) !default;
+$bluegrey-trans-dark: rgba(176, 190, 197, 0.3) !default;
+
+$pearlwhite: #FCFCFC !default;
+
+/* Color shorthand names */
+
+$primary-color: $blue-200; //Blue
+
+$secondary-color: $teal-400; //#00BD9D
+
+$tertiary-color: $pearlwhite;
+
+$dark: $bluegrey-900;
+$white: $pearlwhite;
+$white-trans: rgba(255, 255, 255, 0.5);
+
+$primary-color-light: color($primary-color, 'lighten-2') !default;
+
+/* States color classes */
+
+$success-color: $teal-800 !default;
+
+$error-color: $red-200 !default;
+
+$link-color: $primary-color-light;
+
+/*** Badges ***/
+$badge-bg-color: $secondary-color !default;
+
+/*** Buttons ***/
+$button-bg-color-disabled: #DFDFDF !default;
+$button-color: $secondary-color !default;
+$button-color-disabled: #9F9F9F !default;
+$button-color-flat: #343434 !default;
+$button-color-raised: #fff !default;
+$button-floating-size: 37px !default;
+$button-height: 36px !default;
+$button-font-size-shared: 1.3rem !default;
+$button-large-icon-font-size: 1.6rem !default;
+$button-line-height: 36px !default;
+
+/*** Collapsible ***/
+$collapsible-height: 3rem !default;
+$collapsible-header-color: #fff !default;
+$collapsible-border-color: #ddd !default;
+
+/*** Dropdown ***/
+$dropdown-bg-color: #fff !default;
+$dropdown-hover-bg-color: #eee !default;
+$dropdown-color: $secondary-color !default;
+
+/*** Fonts ***/
+$opensans-font: 'Open Sans', sans-serif;
+$raleway-font: 'Raleway', sans-serif;
+$roboto-font-path: "../font/roboto/" !default;
+$icons-font-path: "../font/material-design-icons/" !default;
+
+/*** Forms ***/
+// Text Inputs + Textarea
+$input-border-color: color("grey", "base") !default;
+$input-bg-color: #fff !default;
+$input-error-color: $error-color !default;
+$input-success-color: $success-color !default;
+$input-focus-color: $secondary-color !default;
+$label-font-size: .8rem !default;
+$input-disabled-color: rgba(0,0,0, .26) !default;
+$input-disabled-solid-color: #BDBDBD !default;
+
+// Radio Buttons
+$radio-fill-color: $secondary-color !default;
+$radio-empty-color: #5a5a5a !default;
+
+
+
+/*** Global ***/
+// Media Query Ranges
+
+$xsmall-screen: 480px !default;
+$xsmall-screen-up: 481px !default;
+
+$small-screen: 600px !default;
+$small-screen-up: 601px !default;
+
+$medium-screen: 992px !default;
+$medium-screen-up: 993px !default;
+
+$large-screen: 1200px !default;
+$large-screen-up: 1201px !default;
+$xlarge-screen-up: 1280px !default;
+
+$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
+$large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
+$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+$medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
+$medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
+
+// Grid Variables
+$num-cols: 12 !default;
+$gutter-width: 1.5rem !default;
+$element-top-margin: $gutter-width/3 !default;
+$element-bottom-margin: ($gutter-width*2)/3 !default;
+
+/*** Navbar ***/
+$navbar-height: 64px !default;
+$navbar-height-mobile: 56px !default;
+$navbar-font-color: #fff !default;
+$navbar-brand-font-size: 2.1rem !default;
+
+/*** SideNav ***/
+$sidenav-bg-color: #fff !default;
+$sidenav-padding-right: 15px !default;
+
+/*** Photo Slider ***/
+$slider-bg-color: color('grey', 'base') !default;
+$slider-bg-color-light: color('grey', 'lighten-2') !default;
+$slider-indicator-color: color('green', 'base') !default;
+
+/*** Tabs ***/
+$tabs-underline-color: $primary-color-light !default;
+$tabs-text-color: $primary-color !default;
+$tabs-bg-color: #fff !default;
+
+/*** Tables ***/
+$table-border-color: #d0d0d0 !default;
+$table-striped-color: #f2f2f2 !default;
+
+/*** Toasts ***/
+$toast-height: 48px !default;
+$toast-color: #323232 !default;
+$toast-text-color: #fff !default;
+
+/*** Typography ***/
+$off-black: rgba(0, 0, 0, 0.87) !default;
+// Header Styles
+$h1-fontsize: 4.2rem !default;
+$h2-fontsize: 3.56rem !default;
+$h3-fontsize: 2.92rem !default;
+$h4-fontsize: 2.28rem !default;
+$h5-fontsize: 1.64rem !default;
+$h6-fontsize: 1rem !default;
+
+// Footer
+$footer-bg-color: $primary-color !default;
+
+// Flowtext
+$range : $large-screen - $small-screen !default;
+$intervals: 20 !default;
+$interval-size: $range / $intervals !default;
+
+/* Progress Bar */
+$progress-bar-color: $secondary-color !default;

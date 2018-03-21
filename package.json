@@ -1,0 +1,16 @@
+{
+  "name": "opz_api",
+  "mod-project-name": "opz_api",
+  "author": "Lawrence Braun",
+  "version": "0.0.3",
+  "homepage": "http://opz.io",
+  "description": "Opz.io API Service",
+  "private": true,
+  "scripts": {
+    "start": "meteor run --settings settings.json"
+  },
+  "dependencies": {
+    "loggly": "^1.1.0",
+    "meteor-node-stubs": "~0.2.0"
+  }
+}

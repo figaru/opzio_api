@@ -1,0 +1,33 @@
+<template name="dashboard">
+	<div class="row">
+		<div class="col-xs-12">
+			<h2 class="display:inline-block;">Dashboard
+				<a href="#" class="reset-dashboard pull-right btn btn-primary" id="logoutUsers">Logout Users</a>
+				<a href="#" class="reset-dashboard pull-right btn btn-secondary" id="resetMetrics">Reset Queues</a>
+			</h2>
+		</div>
+	</div>
+	<div class="row">
+	{{# each queueMetrics }}
+		{{ > queueChart }}
+	{{/each}}
+		
+	</div>
+</template>
+
+<template name="queueChart">
+<div class="col-xs-4 col-sm-3 col-md-2">
+	<div class="well" style="padding: 4px;text-align:center;">
+		<h4>{{ userName this.user }}</h4>
+		<span class="received"></span>
+		{{ chartRefresh this}}
+		<div class="outer-wrapper">
+			<div class="column-wrapper">
+				<div class="column"></div>
+			</div>
+			<div class="percentage">{{ this.progress }}%</div>
+			<div class="value">-- / --</div>
+		</div>
+	</div>
+</div>
+</template>

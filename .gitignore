@@ -1,0 +1,4 @@
+dump/
+node_modules/
+settings.json
+.sass-cache

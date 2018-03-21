@@ -1,0 +1,78 @@
+@import "imports/_variables";
+@import "imports/_forms";
+@import "imports/_buttons";
+@import "imports/_inputs";
+@import "imports/_charts";
+
+body{
+	font-family: $raleway-font;
+	//font-family: $opensans-font;
+	position: relative;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background: $pearlwhite;
+	&.fixed{
+		position: fixed;
+		overflow-y: hidden;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+}
+
+.push-top{
+	margin-top: 100px;
+	/*
+	@media (max-width: $medium-screen){
+		margin-top: 60px;
+	}
+	
+	@media (min-width: $medium-screen-up){
+		margin-top: 90px;
+	}
+
+	@media (max-width: $xsmall-screen){
+		margin-top: 20px;
+	}
+	*/
+}
+
+.align-right{
+	text-align: right;
+}
+
+.align-left{
+	text-align: left;
+}
+
+.align-center{
+	text-align: center;
+}
+
+.no-padding{
+	padding: 0;
+}
+
+.to-upper{
+	text-transform: uppercase;
+}
+
+.shadow{
+	-moz-box-shadow: 0px -2px 0px rgba(0,0,0,.075);
+	-webkit-box-shadow: 0px -2px 0px rgba(0,0,0,.075);
+	box-shadow: inset 0px -2px 0px rgba(0,0,0,.075);
+}
+
+//Dashboard classes
+
+.reset-dashboard{
+	
+}
+
+.well{
+	.received{
+		display: block;
+		position: relative;
+	}
+}

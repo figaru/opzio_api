@@ -1,0 +1,85 @@
+.form-group{
+	label{
+		margin-bottom: 2px;
+		color: $blue-400;
+	}
+}
+
+.form-control{
+	border: none;
+	border-radius: 0;
+	-moz-box-shadow: 0px -2px 0px rgba(0,0,0,.075);
+	-webkit-box-shadow: 0px -2px 0px rgba(0,0,0,.075);
+	box-shadow: inset 0px -2px 0px rgba(0,0,0,.075);
+	background: $bluegrey-trans;
+
+	&:focus, &:active{
+		outline: 0;
+		border: none;
+		color: $dark;
+		box-shadow: inset 0px -2px 0px rgba(64, 196, 255, 1);
+	}
+
+	&:not([contenteditable])::after{
+	  position: absolute;
+	  margin: -5px;
+	  //background: $teal-400;
+	  content: '';
+	  height: 80%;
+	  width: 95%;
+	  opacity: 0;
+	  -webkit-transition: opacity 2s ease-in-out;
+	  -moz-transition: opacity 2s ease-in-out;
+	  -ms-transition: opacity 2s ease-in-out;
+	  -o-transition: opacity 2s ease-in-out;
+	}
+
+	&.saving{
+	  &::after{
+	    opacity: 1;
+	  }
+	}
+
+	//For contenteditable elements mostly
+	&.dynamic-height{
+		height: auto;
+	}
+
+	/* Colors */	
+	&.blue{
+		background: $bluegrey-trans;
+		color: $dark;
+		&:focus, &:active{
+			border: none;
+			box-shadow: inset 0px -2px 0px rgba(64, 196, 255, 1);
+		}		
+	}
+
+	&.purple{
+		background: $bluegrey-trans;
+		color: $dark;
+		&:focus, &:active{
+			border: none;
+			box-shadow: inset 0px -2px 0px rgba(212, 163, 222, 1);
+		}		
+	}
+
+	&.green{
+		background: $bluegrey-trans;
+		color: $dark;
+		&:focus, &:active{
+			border: none;
+			box-shadow: inset 0px -2px 0px rgba(145, 220, 149, 1);
+		}
+	}
+
+	&.error{
+		background-color: $red-trans;
+		color: $dark;
+		box-shadow: inset 0px -2px 0px rgba(239, 154, 154, 1);
+		&:focus, &:active{
+			border: none;
+			box-shadow: inset 0px -2px 0px rgba(239, 154, 154, 1);
+		}	
+	}
+}

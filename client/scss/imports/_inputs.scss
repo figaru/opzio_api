@@ -1,0 +1,587 @@
+
+/*****
+General styles
+*****/
+input, textarea{
+  border-radius: 0!important;
+  border: none;
+}
+
+input{
+  &:focus, &:active{
+    outline: 0;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+button{
+  &:focus, &:active{
+    outline: 0;
+    border: none;
+  } 
+}
+
+.btn-group{
+  .btn, .dropdown{
+    display: inline-block;
+  }
+}
+
+/*****
+  Date
+*****/
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button{
+  display: none;
+  -webkit-appearance: none;
+}
+input[type="date"]::-webkit-input-placeholder{ 
+  visibility: hidden !important;
+  -webkit-appearance: none;
+}
+
+/*****
+  Number
+******/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/********************
+	Checkboxes
+********************/
+input[type="checkbox"]:not(:checked),
+input[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+  visibility: hidden;
+}
+
+// Checkbox Styles
+input[type="checkbox"] {
+
+  // Text Label Style
+  + label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 1rem;
+
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+  }
+
+  /* checkbox aspect */
+  + label:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    z-index: 0;
+    border: 2px solid $dark;
+    border-radius: 1px;
+    margin-top: 2px;
+    transition: all .2s;
+  }
+
+  &:not(:checked):disabled + label:before {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.26);
+  }
+
+}
+
+input[type="checkbox"]:checked {
+  + label:before {
+    top: -4px;
+    left: -3px;
+    width: 12px; 
+    height: 22px;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid $green;
+    border-bottom: 2px solid $green;
+    transform: rotate(40deg);
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
+
+  &:disabled + label:before {
+    border-right: 2px solid rgba(0, 0, 0, 0.26);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.26);
+  }
+
+}
+
+/* Indeterminate checkbox */
+input[type="checkbox"]:indeterminate {
+  +label:before {
+    left: -10px;
+    top: -11px;
+    width: 10px; height: 22px;
+    border-top: none;
+    border-left: none;
+    border-right: 2px solid $green;
+    border-bottom: none;
+    transform: rotate(90deg);
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
+
+  // Disabled indeterminate
+  &:disabled + label:before {
+    border-right: 2px solid rgba(0, 0, 0, 0.26);
+    background-color: transparent;
+  }
+}
+
+
+// Filled in Style
+input[type="checkbox"].filled-in {
+  // General
+  + label:after {
+    border-radius: 0px;
+  }
+  + label:before,
+  + label:after {
+    content: '';
+    left: 0;
+    position: absolute;
+    /* .1s delay is for check animation */
+    transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+    z-index: 1;
+  }
+  // Unchecked style
+  &:not(:checked) + label:before {
+    width: 0;
+     height: 0;
+     border: 3px solid transparent;
+     left: 6px;
+     top: 10px;
+
+     -webkit-transform: rotateZ(37deg);
+             transform: rotateZ(37deg);
+     -webkit-transform-origin: 20% 40%;
+             transform-origin: 100% 100%;
+  }
+  &:not(:checked) + label:after {
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 2px solid $dark;
+    top: 0px;
+    z-index: 0;
+  }
+  // Checked style
+  &:checked {
+    + label:before {
+      top: 0;
+      left: 1px;
+      width: 8px;
+      height: 13px;
+      border-top: 2px solid transparent;
+      border-left: 2px solid transparent;
+      border-right: 2px solid #FFF;
+      border-bottom: 2px solid #FFF;
+      -webkit-transform: rotateZ(37deg);
+      transform: rotateZ(37deg);
+
+      -webkit-transform-origin: 100% 100%;
+      transform-origin: 100% 100%;
+    }
+    + label:after {
+      top: 0px;
+      width: 20px;
+      height: 20px;
+      border: 2px solid $green;
+      background-color: $green;
+      z-index: 0;
+    }
+  }
+  // Disabled style
+  &:disabled:not(:checked) + label:before {
+
+    background-color: transparent;
+    border: 2px solid transparent;
+  }
+  &:disabled:not(:checked) + label:after {
+    border-color: transparent;
+    background-color: #9E9E9E;
+  }
+  &:disabled:checked + label:before {
+    background-color: transparent;
+
+  }
+  &:disabled:checked + label:after {
+    background-color: #9E9E9E;
+    border-color: #9E9E9E;
+  }
+
+}
+
+/***************
+  Radio Buttons
+***************/
+
+/* Remove default Radio Buttons */
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+  position: absolute;
+  left: -9999px;
+  visibility: hidden;
+}
+
+[type="radio"]:not(:checked) + label,
+[type="radio"]:checked + label {
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  font-size: inherit;
+  transition: .28s ease;
+
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+}
+
+[type="radio"]:not(:checked) + label,
+[type="radio"]:checked + label {
+  p{
+    font-weight: normal;
+  }
+}
+
+[type="radio"] + label:before,
+[type="radio"] + label:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 4px;
+  width: 16px;
+  height: 16px;
+  z-index: 0;
+  transition: .28s ease;
+}
+
+
+/* Unchecked styles */
+[type="radio"]:not(:checked) + label:before {
+  border-radius: 50%;
+  border: 2px solid $radio-empty-color;
+}
+[type="radio"]:not(:checked) + label:after {
+  border-radius: 50%;
+  border: 2px solid $radio-empty-color;
+  z-index: -1;
+
+  transform: scale(0);
+}
+
+/* Checked styles */
+[type="radio"]:checked + label:before {
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+[type="radio"]:checked + label:after {
+  border-radius: 50%;
+  border: 2px solid $primary-color;
+  background-color: $primary-color;
+  z-index: 0;
+  transform: scale(1.02);
+}
+
+/* Radio With gap */
+[type="radio"].with-gap:checked + label:before {
+  border-radius: 50%;
+  border: 2px solid $radio-fill-color;
+}
+[type="radio"].with-gap:checked + label:after {
+  border-radius: 50%;
+  border: 2px solid $radio-fill-color;
+  background-color: $radio-fill-color;
+  z-index: 0;
+  transform: scale(.5);
+}
+
+/* Disabled Radio With gap */
+[type="radio"].with-gap:disabled:checked + label:before {
+  border: 2px solid $input-disabled-color;
+}
+[type="radio"].with-gap:disabled:checked + label:after {
+  border: none;
+  background-color: $input-disabled-color;
+}
+
+/* Disabled style */
+[type="radio"]:disabled:not(:checked) + label:before,
+[type="radio"]:disabled:checked + label:before {
+  background-color: transparent;
+  border-color: $input-disabled-color;
+}
+[type="radio"]:disabled + label {
+  color: $input-disabled-color;
+}
+[type="radio"]:disabled:not(:checked) + label:before {
+  border-color: $input-disabled-color;
+}
+[type="radio"]:disabled:checked + label:after {
+  background-color: $input-disabled-color;
+  border-color: $input-disabled-solid-color;
+}
+
+/***************
+     Switch
+***************/
+.switch,
+.switch * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+}
+.switch label {
+    cursor: pointer;
+    font-weight: normal;
+}
+.switch label input[type=checkbox]{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.switch label input[type=checkbox]:checked + .lever {
+    background-color: #84C7C1;
+}
+.switch label input[type=checkbox]:checked + .lever:after {
+    background-color: #26A69A;
+}
+.switch label .lever {
+    content: "";
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 15px;
+    background-color: #818181;
+    border-radius: 15px;
+    margin-right: 10px;
+    transition: background 0.3s ease;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+.switch label .lever:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    background-color: #BDBDBD;
+    border-radius: 21px;
+    box-shadow: 0 1px 3px 1px rgba(0,0,0,.4);
+    left: -5px;
+    top: -3px;
+    transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease;
+}
+// Switch active style
+input[type=checkbox]:checked:not(:disabled) ~ .lever:active:after {
+       box-shadow: 0 1px 3px 1px rgba(0,0,0,.4), 0 0 0 15px transparentize(#818181, .9);
+}
+input[type=checkbox]:not(:disabled) ~ .lever:active:after {
+       box-shadow: 0 1px 3px 1px rgba(0,0,0,.4), 0 0 0 15px rgba(0, 0, 0, .08);
+}
+.switch label input[type=checkbox]:checked + .lever:after {
+    left: 24px;
+}
+
+// Disabled Styles
+
+.switch input[type=checkbox][disabled] + .lever{
+  cursor: default;
+}
+.switch label input[type=checkbox][disabled] + .lever:after,
+.switch label input[type=checkbox][disabled]:checked + .lever:after {
+    background-color: #BDBDBD;
+}
+
+/***************
+      Range
+***************/
+
+.range-field {
+  position: relative;
+}
+
+input[type=range], input[type=range] + .thumb {
+  cursor: pointer;
+}
+
+input[type=range] {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin: 15px 0px;
+  padding: 0;
+}
+input[type=range] + .thumb {
+  position: absolute;
+  border: none;
+  height: 0;
+  width: 0;
+  border-radius: 50%;
+  background-color: $blue-400;
+  top: 10px;
+  margin-left: -6px;
+
+  transform-origin: -35% 30%;
+  -ms-transform: rotate(-45deg); /* IE 9 */
+  -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+  transform: rotate(-45deg);
+
+  .value {
+    display: block;
+    width: 30px;
+    text-align: center;
+    color: $blue-400;
+    font-size: 0;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+  }
+
+  &.active {
+    //border-radius: 50% 50% 50% 0;
+
+    .value {
+      color: $white;
+      margin-left: 0px;
+      margin-top: 5px;
+      font-size: 1em;
+      font-weight: 600;
+    }
+  }
+}
+
+
+input[type=range]:focus {
+  outline: none;
+}
+
+
+
+// WebKit
+input[type=range]{
+  -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: 3px;
+  background: #c2c0c2;
+  border: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background-color: $blue-400;
+  transform-origin: 50% 50%;
+  margin: -5px 0 0 0;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ccc;
+}
+
+// FireFox
+input[type=range]{
+  /* fix for FF unable to apply focus style bug  */
+  border: 1px solid white;
+
+  /*required for proper track sizing in FF*/
+}
+
+input[type=range]::-moz-range-track {
+  height: 3px;
+  background: #ddd;
+  border: none;
+}
+
+input[type=range]::-moz-range-thumb {
+  border: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: $blue-400;
+  margin-top: -5px;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+  outline: none!important;
+  text-shadow: 0 0 0;
+  outline-offset: -1px;
+}
+
+input[type=range]:focus::-moz-range-track {
+  background: #ccc;
+}
+
+input[type=range]::-moz-focus-inner{
+  border: 0;
+}
+
+// IE 10+
+input[type=range]::-ms-track {
+  height: 3px;
+
+  /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+  background: transparent;
+
+  /*leave room for the larger thumb to overflow with a transparent border */
+  border-color: transparent;
+  border-width: 6px 0;
+
+  /*remove default tick marks*/
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #777;
+}
+input[type=range]::-ms-fill-upper {
+  background: #ddd;
+}
+input[type=range]::-ms-thumb {
+  border: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: $blue-400;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #888;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #ccc;
+}
